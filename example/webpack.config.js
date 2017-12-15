@@ -5,14 +5,14 @@ module.exports = {
     __filename: false
   },
   entry: {
-    'main': './src/main.js',
-    'renderer': './src/renderer.js'
+    main: './src/main.js',
+    renderer: './src/renderer.js'
   },
   output: {
     filename: 'dist/[name].js'
   },
   resolve: {
-    extensions: [ '', '.js', '.jsx' ]
+    extensions: ['', '.js', '.jsx']
   },
   module: {
     loaders: [
@@ -24,4 +24,4 @@ module.exports = {
     ]
   },
   devtool: 'source-map'
-};
+}
