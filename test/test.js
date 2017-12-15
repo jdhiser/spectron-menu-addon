@@ -1,10 +1,10 @@
 const Application = require('spectron').Application
 const electron = require('electron-prebuilt')
 const path = require('path')
-const fakeMenu = require('../index')
+const menuAddon = require('../index')
 
 const app = new Application({ path: electron, args: [path.join(__dirname, '.')] })
-fakeMenu.apply(app)
+menuAddon.apply(app)
 
 const assert = require('power-assert')
 const fs = require('fs')
@@ -25,7 +25,7 @@ describe('click File->Save Menu', function() {
       .getWindowCount()
       .then(count => assert.equal(count, 1))
       .then(() => {
-        fakeMenu.clickMenu('File', 'Save')
+        menuAddon.clickMenu('File', 'Save')
         return new Promise((resolve, _reject) => {
           const timer = setInterval(() => {
             if (fs.existsSync('./sandbox/test.txt')) {
