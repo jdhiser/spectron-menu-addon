@@ -2,9 +2,10 @@
   "name": "spectron-menu-addon",
   "version": "0.0.1",
   "description": "",
-  "main": "index.js",
-  "scripts": {},
-
+  "main": "src/index.js",
+  "scripts": {
+    "test": "mocha test/*test.js"
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/SALT-AND-PEPPER/spectron-menu-addon.git"
@@ -15,5 +16,11 @@
   "dependencies": {
     "electron": "^1.7.9",
     "spectron": "^3.7.2"
+  },
+  "devDependencies": {
+    "mkdirp": "^0.5.1",
+    "electron-prebuilt": "^1.4.13",
+    "mocha": "^4.0.1",
+    "power-assert": "^1.4.4"
   }
 }

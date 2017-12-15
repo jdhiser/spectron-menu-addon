@@ -1,22 +1,5 @@
 {
-  "name": "spectron-fake-menu",
+  "name":    "spectron-menu-addon-test",
   "version": "0.0.1",
-  "description": "Provide manipulation of menus in your spectron's specs.",
-  "main": "main.js",
-  "scripts": {
-    "test": "mocha test.js"
-  },
-  "keywords": [],
-  "author": "",
-  "license": "MIT",
-  "dependencies": {
-    "electron": "^1.7.9",
-    "mkdirp": "^0.5.1",
-    "spectron": "^3.7.2"
-  },
-  "devDependencies": {
-    "electron-prebuilt": "^1.4.13",
-    "mocha": "^4.0.1",
-    "power-assert": "^1.4.4"
-  }
+  "main":    "main.js"
 }

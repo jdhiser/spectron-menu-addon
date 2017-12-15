@@ -1,8 +1,9 @@
 const Application = require('spectron').Application
 const electron = require('electron-prebuilt')
 const path = require('path')
-const menuAddon = require('../index')
+const menuAddon = require('../src/index')
 
+console.log(electron)
 const app = new Application({ path: electron, args: [path.join(__dirname, '.')] })
 menuAddon.apply(app)
 
