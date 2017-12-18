@@ -37,11 +37,6 @@ If the target is nested, it can be specified with variable length arguments.
 
 ex) File -> CloseTab: `menuAddon.clickMenu('File', 'CloseTab');`
 
-## TODO
-
-* [ ] provides check box API
-* [ ] provides radio button API
-
 ## License
 
 MIT
