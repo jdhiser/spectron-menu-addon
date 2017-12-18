@@ -6,7 +6,11 @@
   "files": ["dist"],
   "types": "dist/index.d.ts",
   "scripts": {
-    "test": "mocha test/*test.js"
+    "build": "webpack --config webpack/webpack.config.js",
+    "build:preload": "tsc -p tsconfig.preload.json",
+    "test":
+      "yarn build && yarn build:preload && mocha --reporter spec --require ts-node/register test/*test.ts && rm src/preload.js ",
+    "lint": "tslint --config tslint.json -p tsconfig.json --format stylish"
   },
   "repository": {
     "type": "git",
