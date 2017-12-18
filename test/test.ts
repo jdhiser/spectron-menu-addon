@@ -1,11 +1,8 @@
-const Application = require('spectron').Application
-const electron = require('electron-prebuilt')
-const path = require('path')
-const menuAddon = require('../src/index')
+import * as electron from 'electron-prebuilt'
+import * as path from 'path'
+import menuAddon from '../src/index'
 
-console.log(electron)
-const app = new Application({ path: electron, args: [path.join(__dirname, '.')] })
-menuAddon.apply(app)
+const app = menuAddon.createApplication({ path: electron, args: [path.join(__dirname, '.')] })
 
 const assert = require('power-assert')
 const fs = require('fs')
@@ -13,10 +10,10 @@ const fs = require('fs')
 describe('click File->Save Menu', function() {
   this.timeout(10000)
 
-  beforeEach(function() {
+  beforeEach(() => {
     return app.start()
   })
-  afterEach(function() {
+  afterEach(() => {
     fs.unlink('sandbox/test.txt')
     return app.stop()
   })
@@ -27,7 +24,7 @@ describe('click File->Save Menu', function() {
       .then(count => assert.equal(count, 1))
       .then(() => {
         menuAddon.clickMenu('File', 'Save')
-        return new Promise((resolve, _reject) => {
+        return new Promise((resolve, reject) => {
           const timer = setInterval(() => {
             if (fs.existsSync('./sandbox/test.txt')) {
               const text = fs.readFileSync('./sandbox/test.txt', 'utf8')

@@ -1,5 +1,5 @@
 {
-  "name":    "spectron-menu-addon-test",
+  "name": "spectron-menu-addon-test",
   "version": "0.0.1",
-  "main":    "main.js"
+  "main": "main.ts"
 }
