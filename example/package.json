@@ -18,10 +18,11 @@
     "babel-plugin-espower": "^2.3.2",
     "babel-preset-es2015": "^6.24.1",
     "babel-preset-react": "^6.24.1",
+    "electron-prebuilt": "^1.4.13",
     "mocha": "^4.0.1",
     "power-assert": "^1.4.4",
     "spectron": "^3.7.2",
-    "spectron-fake-menu": "0.0.1",
+    "spectron-menu-addon": "0.0.1",
     "webpack": "^3.10.0"
   },
   "dependencies": {

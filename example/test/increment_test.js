@@ -1,6 +1,6 @@
 import createApplication from './createApplication'
 import { waitForChangeCount } from './helper'
-import fakeMenu from 'spectron-fake-menu'
+import menuAddon from 'spectron-menu-addon'
 import assert from 'power-assert'
 
 describe('Increment', function() {
@@ -18,7 +18,7 @@ describe('Increment', function() {
     return app.client
       .waitForExist('#count')
       .then(() => {
-        fakeMenu.clickMenu('Count', 'Increment')
+        menuAddon.clickMenu('Count', 'Increment')
         return waitForChangeCount(app, '1')
       })
       .then(() => assert.ok(true))

@@ -1291,7 +1291,14 @@ electron-download@^4.1.0:
     semver "^5.3.0"
     sumchecker "^2.0.1"
 
-electron@^1.4.12:
+electron-prebuilt@^1.4.13:
+  version "1.4.13"
+  resolved "https://registry.yarnpkg.com/electron-prebuilt/-/electron-prebuilt-1.4.13.tgz#0a0e4d7bf895a242061ccfab29394dcda1da33d2"
+  dependencies:
+    electron-download "^3.0.1"
+    extract-zip "^1.0.3"
+
+electron@^1.7.9:
   version "1.7.9"
   resolved "https://registry.yarnpkg.com/electron/-/electron-1.7.9.tgz#add54e9f8f83ed02f6519ec10135f698b19336cf"
   dependencies:
@@ -3285,14 +3292,14 @@ spdx-license-ids@^1.0.2:
   version "1.2.2"
   resolved "https://registry.yarnpkg.com/spdx-license-ids/-/spdx-license-ids-1.2.2.tgz#c9df7a3424594ade6bd11900d596696dc06bac57"
 
-spectron-fake-menu@0.0.1:
+spectron-menu-addon@0.0.1:
   version "0.0.1"
-  resolved "https://registry.yarnpkg.com/spectron-fake-menu/-/spectron-fake-menu-0.0.1.tgz#c2d3f3eb14e1dc0fafbca20b12bf05234abbb96c"
+  resolved "https://registry.yarnpkg.com/spectron-menu-addon/-/spectron-menu-addon-0.0.1.tgz#cb3ab435525352bb268ad9a53e57fc1eae552dbd"
   dependencies:
-    electron "^1.4.12"
-    spectron "^3.4.0"
+    electron "^1.7.9"
+    spectron "^3.7.2"
 
-spectron@^3.4.0, spectron@^3.7.2:
+spectron@^3.7.2:
   version "3.7.2"
   resolved "https://registry.yarnpkg.com/spectron/-/spectron-3.7.2.tgz#86f41306a9b70ed6ee1500f7f7d3adc389afb446"
   dependencies:
