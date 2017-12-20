@@ -1,22 +1,27 @@
 {
   "name": "spectron-menu-addon",
-  "version": "0.0.1",
+  "version": "0.1.0",
   "description": "",
   "main": "dist/index.js",
-  "files": ["dist"],
+  "files": [
+    "dist"
+  ],
   "types": "dist/index.d.ts",
   "scripts": {
     "build": "tsc",
     "build:preload": "tsc -p tsconfig.preload.json",
-    "test":
-      "yarn build && yarn build:preload && mocha --reporter spec --require ts-node/register test/*test.ts && rm src/preload.js ",
+    "test": "yarn build && yarn build:preload && mocha --reporter spec --require ts-node/register test/*test.ts && rm src/preload.js ",
     "lint": "tslint --config tslint.json -p tsconfig.json --format stylish"
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/SALT-AND-PEPPER/spectron-menu-addon.git"
   },
-  "keywords": ["spectron", "menu", "mock"],
+  "keywords": [
+    "spectron",
+    "menu",
+    "mock"
+  ],
   "author": "",
   "license": "MIT",
   "dependencies": {
