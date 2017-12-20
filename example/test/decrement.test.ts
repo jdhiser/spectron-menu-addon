@@ -6,11 +6,11 @@ import assert from 'power-assert'
 describe('Decrement', function() {
   this.timeout(10000)
   let app
-  beforeEach(function() {
+  beforeEach(() => {
     app = createApplication()
     return app.start()
   })
-  afterEach(function() {
+  afterEach(() => {
     return app.stop()
   })
 
