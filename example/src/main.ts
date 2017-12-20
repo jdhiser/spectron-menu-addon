@@ -1,6 +1,6 @@
 import { app, Menu, BrowserWindow } from 'electron'
-import path from 'path'
-import url from 'url'
+import * as path from 'path'
+import * as url from 'url'
 
 let win
 let count = 0
@@ -26,9 +26,9 @@ function setAppMenu() {
       label: 'View',
       submenu: [
         {
-          label: 'Toggle Developer Tools',
           accelerator: 'Alt+Command+I',
-          click: () => win.webContents.toggleDevTools()
+          click: () => win.webContents.toggleDevTools(),
+          label: 'Toggle Developer Tools'
         }
       ]
     }
@@ -46,6 +46,7 @@ function createWindow() {
   win = new BrowserWindow({ width: 800, height: 600 })
 
   win.loadURL(
+    // this.browserWindow.loadURL(`file://${__dirname}/../../../index.html`)
     url.format({
       pathname: path.join(__dirname, '../index.html'),
       protocol: 'file:',
