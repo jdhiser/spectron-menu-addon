@@ -6,7 +6,7 @@
   "files": ["dist"],
   "types": "dist/index.d.ts",
   "scripts": {
-    "build": "webpack --config webpack/webpack.config.js",
+    "build": "tsc",
     "build:preload": "tsc -p tsconfig.preload.json",
     "test":
       "yarn build && yarn build:preload && mocha --reporter spec --require ts-node/register test/*test.ts && rm src/preload.js ",
