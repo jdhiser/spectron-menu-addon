@@ -24,13 +24,14 @@
   ],
   "author": "",
   "license": "MIT",
-  "dependencies": {
-    "electron": "^1.7.9",
+  "peerDependencies": {
+    "electron": "^1.7.10",
     "spectron": "^3.7.2"
   },
   "devDependencies": {
     "@types/mocha": "^2.2.44",
     "dts-bundle": "^0.7.3",
+    "electron": "^1.7.10",
     "electron-prebuilt": "^1.4.13",
     "extract-text-webpack-plugin": "^3.0.2",
     "mkdirp": "^0.5.1",
@@ -40,6 +41,8 @@
     "ts-node": "^4.0.2",
     "tslint": "^5.8.0",
     "tslint-loader": "^3.5.3",
-    "typescript": "^2.6.2"
+    "typescript": "^2.6.2",
+    "spectron": "^3.7.2",
+    "webpack": "^3.10.0"
   }
 }
