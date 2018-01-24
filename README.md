@@ -43,7 +43,7 @@ ex) File -> Save:
 menuAddon.clickMenu('File', 'Save')
 ```
 
-### menuAddon.getMenuItem(...labels: string[]): Promise
+### menuAddon.getMenuItem(...labels: string[]): Promise<MenuItem>
 
 Find menu item by labels and return that with following properties:
 
