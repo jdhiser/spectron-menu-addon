@@ -8,7 +8,7 @@
     "build": "webpack --config webpack/webpack.config.js",
     "watch": "webpack --config webpack/webpack.config.js -w",
     "start": "electron .",
-    "test": "mocha --reporter spec --require ts-node/register test/*test.ts"
+    "test": "mocha --reporter spec --timeout 10000 --require ts-node/register test/*test.ts"
   },
   "keywords": [],
   "author": "",
