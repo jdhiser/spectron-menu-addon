@@ -11,7 +11,10 @@ npm install --save-dev spectron-menu-addon
 ## Usage
 
 ```
+import * as electron from 'electron'
+import * as path from 'path'
 import menuAddon from 'spectron-menu-addon'
+
 const app = menuAddon.createApplication({ args: [path.join(__dirname, '..')], path: electron.toString() })
 
 menuAddon.clickMenu('Config'); // 'Config' Menu click
