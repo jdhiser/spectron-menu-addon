@@ -1,6 +1,6 @@
 # SpectronMenuAddon
 
-Provide manipulation of menus in your spectron's specs.
+Provide functionality to click menu items and get their status within spectron tests.
 
 ## Installation
 
@@ -18,7 +18,8 @@ import menuAddon from 'spectron-menu-addon'
 const app = menuAddon.createApplication({ args: [path.join(__dirname, '..')], path: electron.toString() })
 
 menuAddon.clickMenu('Config'); // 'Config' Menu click
-menuAddon.clickMenu('File', 'CloseTab'); // File->CloseTab Menu click
+menuAddon.clickMenu('File', 'Save'); // File->Save MenuItem click
+await menuAddon.isItemEnabled('File', 'Reset')) // Verify if MenuItem File->Reset is enabled
 ```
 
 ## Example
@@ -36,7 +37,14 @@ Creates application to test
 Find menu by labels and click.
 If the target is nested, it can be specified with variable length arguments.
 
-ex) File -> CloseTab: `menuAddon.clickMenu('File', 'CloseTab');`
+ex) File -> Save: `menuAddon.clickMenu('File', 'Save')`
+
+### menuAddon.isItemEnabled(...labels: string[]): Promise
+
+Find menu by labels and return true if the item is enabled.
+If the target is nested, it can be specified with variable length arguments.
+
+ex) File -> Open: `await menuAddon.isItemEnabled('File', 'Open')`
 
 ## License
 
