@@ -1,7 +1,7 @@
 var webpack = require('webpack')
 var ExtractTextPlugin = require('extract-text-webpack-plugin')
 var path = require('path')
-var libraryName = 'AdditionalProsemirrorCommands'
+var libraryName = 'SpectronMenuAddon'
 
 function DtsBundlePlugin(libraryName) {
   this.libraryName = libraryName
@@ -79,6 +79,5 @@ module.exports = {
     }),
     new webpack.optimize.ModuleConcatenationPlugin(),
     new webpack.optimize.OccurrenceOrderPlugin()
-    // new DtsBundlePlugin(libraryName)
   ]
 }
