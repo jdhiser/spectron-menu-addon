@@ -11,11 +11,9 @@ npm install --save-dev spectron-menu-addon
 ## Usage
 
 ```
-const Application = require('spectron').Application;
-const menuAddon = require('spectron-menu-addon');
-const app = new Application({ path: electron, args: [ path.join(__dirname, '.') ] });
+import menuAddon from 'spectron-menu-addon'
+const app = menuAddon.createApplication({ args: [path.join(__dirname, '..')], path: electron.toString() })
 
-menuAddon.apply(app); // apply menu
 menuAddon.clickMenu('Config'); // 'Config' Menu click
 menuAddon.clickMenu('File', 'CloseTab'); // File->CloseTab Menu click
 ```
