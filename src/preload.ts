@@ -1,4 +1,4 @@
-import { MenuItem, MenuItemConstructorOptions, Menu } from 'electron'
+import { MenuItem, MenuItemConstructorOptions, Menu, ipcMain, Event } from 'electron'
 
 // tslint:disable-next-line:array-type
 function findItem(menuItems: Array<MenuItem>, labels: string[]) {
@@ -11,6 +11,11 @@ function findItem(menuItems: Array<MenuItem>, labels: string[]) {
 
   return findItem(((foundItem as MenuItemConstructorOptions).submenu as Menu).items, rest)
 }
+
+ipcMain.on('SPECTRON_MENU_ADDON/MENU_ITEM_ENABLED', (e: Event, labels) => {
+  const item: MenuItem = findItem(Menu.getApplicationMenu().items, labels)
+  e.returnValue = item.enabled
+})
 
 ipcMain.on('SPECTRON_MENU_ADDON/CLICK_MENU_ITEM', (e: Event, labels) => {
   const item: MenuItem = findItem(Menu.getApplicationMenu().items, labels)

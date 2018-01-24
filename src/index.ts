@@ -1,4 +1,5 @@
 import * as path from 'path'
+
 import { Application, AppConstructorOptions } from 'spectron'
 
 export class SpectronMenuAddon {
@@ -18,6 +19,14 @@ export class SpectronMenuAddon {
   clickMenu(...labels: string[]) {
     this.app.electron.ipcRenderer.send('SPECTRON_MENU_ADDON/CLICK_MENU_ITEM', labels)
   }
+
+  async isItemEnabled(...labels: string[]) {
+    const enabled = await this.app.electron.ipcRenderer.sendSync(
+      'SPECTRON_MENU_ADDON/MENU_ITEM_ENABLED',
+      labels
+    )
+
+    return enabled
   }
 }
 
