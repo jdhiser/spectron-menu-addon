@@ -16,7 +16,15 @@ function setAppMenu() {
   const template = [
     {
       label: 'File',
-      submenu: [{ label: 'Save', accelerator: 'CmdOrCtrl+S', click: () => saveFile() }]
+      submenu: [
+        { label: 'Save', accelerator: 'CmdOrCtrl+S', click: () => saveFile() },
+        {
+          accelerator: 'CmdOrCtrl+O',
+          click: () => {},
+          enabled: false,
+          label: 'Open'
+        }
+      ]
     }
   ]
   if (process.platform === 'darwin') {
