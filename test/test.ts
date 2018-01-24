@@ -1,41 +1,42 @@
 import * as electron from 'electron-prebuilt'
 import * as path from 'path'
 import menuAddon from '../src/index'
+import { expect } from 'chai'
+import * as fs from 'fs'
 
 const app = menuAddon.createApplication({ path: electron, args: [path.join(__dirname, '.')] })
 
-const assert = require('power-assert')
-const fs = require('fs')
-
 describe('click File->Save Menu', function() {
+  const folderPath = path.join(__dirname, 'sandbox')
+  const filePath = path.join(folderPath, 'test.txt')
+
   this.timeout(10000)
 
-  beforeEach(() => {
-    return app.start()
-  })
-  afterEach(() => {
-    fs.unlink('sandbox/test.txt')
-    return app.stop()
+  beforeEach(async () => {
+    await app.start()
   })
 
-  it('creates test file', () => {
-    return app.client
-      .getWindowCount()
-      .then(count => assert.equal(count, 1))
-      .then(() => {
-        menuAddon.clickMenu('File', 'Save')
-        return new Promise((resolve, reject) => {
-          const timer = setInterval(() => {
-            if (fs.existsSync('./sandbox/test.txt')) {
-              const text = fs.readFileSync('./sandbox/test.txt', 'utf8')
-              resolve(text)
-              clearInterval(timer)
-            }
-          }, 1000)
-        })
-      })
-      .then(text => {
-        assert.equal(text, 'test')
-      })
+  afterEach(async () => {
+    fs.unlinkSync(filePath)
+    fs.rmdirSync(folderPath)
+    await app.stop()
+  })
+
+  it('creates test file', async () => {
+    expect(await app.client.getWindowCount()).to.equal(1)
+    menuAddon.clickMenu('File', 'Save')
+    expect(await readFile(filePath)).to.equal('test')
   })
 })
+
+const readFile = async (filePath: string) => {
+  return new Promise((resolve, reject) => {
+    const timer = setInterval(() => {
+      if (fs.existsSync(filePath)) {
+        const text = fs.readFileSync(filePath, 'utf8')
+        resolve(text)
+        clearInterval(timer)
+      }
+    }, 1000)
+  })
+}

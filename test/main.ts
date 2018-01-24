@@ -7,8 +7,9 @@ const mkdirp = require('mkdirp')
 let win
 
 function saveFile() {
-  mkdirp('sandbox')
-  fs.writeFileSync('sandbox/test.txt', 'test')
+  const folderPath = path.join(__dirname, 'sandbox')
+  mkdirp(folderPath)
+  fs.writeFileSync(path.join(folderPath, 'test.txt'), 'test')
 }
 
 function setAppMenu() {
