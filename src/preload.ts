@@ -12,7 +12,7 @@ function findItem(menuItems: Array<MenuItem>, labels: string[]) {
   return findItem(((foundItem as MenuItemConstructorOptions).submenu as Menu).items, rest)
 }
 
-require('electron').ipcMain.on('SPECTRON_MENU_ADDON/SEND', (e, labels) => {
-  const item = findItem(require('electron').Menu.getApplicationMenu().items, labels)
+ipcMain.on('SPECTRON_MENU_ADDON/CLICK_MENU_ITEM', (e: Event, labels) => {
+  const item: MenuItem = findItem(Menu.getApplicationMenu().items, labels)
   item.click()
 })

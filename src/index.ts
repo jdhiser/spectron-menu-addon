@@ -16,7 +16,8 @@ export class SpectronMenuAddon {
   }
 
   clickMenu(...labels: string[]) {
-    this.app.electron.ipcRenderer.send('SPECTRON_MENU_ADDON/SEND', labels)
+    this.app.electron.ipcRenderer.send('SPECTRON_MENU_ADDON/CLICK_MENU_ITEM', labels)
+  }
   }
 }
 
