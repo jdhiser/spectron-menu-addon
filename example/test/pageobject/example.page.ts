@@ -2,6 +2,7 @@ import { Application } from 'spectron'
 import menuAddon from 'spectron-menu-addon'
 
 import createApplication from './create-application'
+import { MenuItem } from 'electron'
 
 export default class ExamplePage {
   app: Application
@@ -30,8 +31,8 @@ export default class ExamplePage {
     menuAddon.clickMenu(...menuItems)
   }
 
-  isItemEnabled = async (...menuItems: string[]) => {
-    return await menuAddon.isItemEnabled(...menuItems)
+  getMenuItem = async (...menuItems: string[]): Promise<MenuItem> => {
+    return await menuAddon.getMenuItem(...menuItems)
   }
 
   getText = async () => {

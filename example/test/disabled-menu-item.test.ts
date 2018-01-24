@@ -1,6 +1,7 @@
 import menuAddon from 'spectron-menu-addon'
 import ExamplePage from './pageobject/example.page'
 import { expect } from 'chai'
+import { MenuItem } from 'electron'
 
 describe('Menu items status', () => {
   let page: ExamplePage
@@ -15,10 +16,12 @@ describe('Menu items status', () => {
   })
 
   it('should verify File->Increment as enabled', async () => {
-    expect(await page.isItemEnabled('Count', 'Increment')).to.equal(true)
+    const menuItem = await page.getMenuItem('Count', 'Increment')
+    expect(menuItem.enabled).to.equal(true)
   })
 
   it('should verify File->Reset as disabled', async () => {
-    expect(await page.isItemEnabled('Count', 'Reset')).to.equal(false)
+    const menuItem = await page.getMenuItem('Count', 'Reset')
+    expect(menuItem.enabled).to.equal(false)
   })
 })
