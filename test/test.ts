@@ -3,6 +3,7 @@ import * as path from 'path'
 import menuAddon from '../src/index'
 import { expect } from 'chai'
 import * as fs from 'fs'
+import { MenuItem } from 'electron'
 
 const app = menuAddon.createApplication({ path: electron, args: [path.join(__dirname, '.')] })
 
@@ -54,6 +55,7 @@ describe('Verify menu item status', () => {
 
   it('should verify File->Open as disabled', async () => {
     expect(await app.client.getWindowCount()).to.equal(1)
-    expect(await menuAddon.isItemEnabled('File', 'Open')).to.equal(false)
+    const menuItem = await menuAddon.getMenuItem('File', 'Open')
+    expect(menuItem.enabled).to.equal(false)
   })
 })

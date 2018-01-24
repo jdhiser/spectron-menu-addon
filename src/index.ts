@@ -20,13 +20,8 @@ export class SpectronMenuAddon {
     this.app.electron.ipcRenderer.send('SPECTRON_MENU_ADDON/CLICK_MENU_ITEM', labels)
   }
 
-  async isItemEnabled(...labels: string[]) {
-    const enabled = await this.app.electron.ipcRenderer.sendSync(
-      'SPECTRON_MENU_ADDON/MENU_ITEM_ENABLED',
-      labels
-    )
-
-    return enabled
+  async getMenuItem(...labels: string[]) {
+    return await this.app.electron.ipcRenderer.sendSync('SPECTRON_MENU_ADDON/GET_MENU_ITEM', labels)
   }
 }
 

@@ -4,13 +4,13 @@ Provide functionality to click menu items and get their status within spectron t
 
 ## Installation
 
-```
+```bash
 npm install --save-dev spectron-menu-addon
 ```
 
 ## Usage
 
-```
+```TypeScript
 import * as electron from 'electron'
 import * as path from 'path'
 import menuAddon from 'spectron-menu-addon'
@@ -37,14 +37,32 @@ Creates application to test
 Find menu by labels and click.
 If the target is nested, it can be specified with variable length arguments.
 
-ex) File -> Save: `menuAddon.clickMenu('File', 'Save')`
+ex) File -> Save:
 
-### menuAddon.isItemEnabled(...labels: string[]): Promise
+```TypeScript
+menuAddon.clickMenu('File', 'Save')
+```
 
-Find menu by labels and return true if the item is enabled.
+### menuAddon.getMenuItem(...labels: string[]): Promise
+
+Find menu item by labels and return that with following properties:
+
+```TypeScript
+{
+  checked: boolean
+  enabled: boolean
+  label: string
+  visible: boolean
+}
+```
+
 If the target is nested, it can be specified with variable length arguments.
 
-ex) File -> Open: `await menuAddon.isItemEnabled('File', 'Open')`
+ex) File -> Open:
+
+```TypeScript
+await menuAddon.getMenuItem('File', 'Open')
+```
 
 ## License
 
