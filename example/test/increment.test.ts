@@ -14,7 +14,7 @@ describe('Increment', () => {
     await page.close()
   })
 
-  it('decrement count', async () => {
+  it('should increment count', async () => {
     page.clickMenu('Count', 'Increment')
     expect(await page.getText()).to.equal('1')
   })

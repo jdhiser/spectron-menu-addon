@@ -14,7 +14,7 @@ describe('Decrement', () => {
     await page.close()
   })
 
-  it('decrement count', async () => {
+  it('should decrement count', async () => {
     page.clickMenu('Count', 'Decrement')
     expect(await page.getText()).to.equal('-1')
   })
