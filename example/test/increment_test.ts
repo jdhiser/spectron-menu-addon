@@ -1,26 +1,21 @@
-import createApplication from './createApplication'
-import { waitForChangeCount } from './helper'
 import menuAddon from 'spectron-menu-addon'
-import assert from 'power-assert'
+import ExamplePage from './pageobject/example.page'
+import { expect } from 'chai'
 
-describe('Increment', function() {
-  this.timeout(10000)
-  let app
-  beforeEach(() => {
-    app = createApplication()
-    return app.start()
-  })
-  afterEach(() => {
-    return app.stop()
+describe('Increment', () => {
+  let page: ExamplePage
+
+  before(async () => {
+    page = new ExamplePage()
+    await page.start()
   })
 
-  it('increment count', () => {
-    return app.client
-      .waitForExist('#count')
-      .then(() => {
-        menuAddon.clickMenu('Count', 'Increment')
-        return waitForChangeCount(app, '1')
-      })
-      .then(() => assert.ok(true))
+  after(async () => {
+    await page.close()
+  })
+
+  it('decrement count', async () => {
+    page.clickMenu('Count', 'Increment')
+    expect(await page.getText()).to.equal('1')
   })
 })
