@@ -19,7 +19,8 @@ function setAppMenu() {
       label: 'Count',
       submenu: [
         { label: 'Increment', accelerator: 'CmdOrCtrl+U', click: () => increment() },
-        { label: 'Decrement', accelerator: 'CmdOrCtrl+D', click: () => decrement() }
+        { label: 'Decrement', accelerator: 'CmdOrCtrl+D', click: () => decrement() },
+        { label: 'Reset', accelerator: 'CmdOrCtrl+R', enabled: false, click: () => {} }
       ]
     },
     {

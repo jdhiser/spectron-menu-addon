@@ -30,6 +30,10 @@ export default class ExamplePage {
     menuAddon.clickMenu(...menuItems)
   }
 
+  isItemEnabled = async (...menuItems: string[]) => {
+    return await menuAddon.isItemEnabled(...menuItems)
+  }
+
   getText = async () => {
     return await this.app.client.getText(this.countElementId)
   }
