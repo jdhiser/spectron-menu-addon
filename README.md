@@ -24,13 +24,13 @@ https://github.com/SALT-AND-PEPPER/spectron-menu-addon/tree/master/example
 
 ## API
 
-### menuAddon.apply(application: Application)
+### menuAddon.createApplication(options: AppConstructorOptions): Application
 
-initialize spectronmenuAddon
+Creates application to test
 
-### menuAddon.clickMenu(...labels: string)
+### menuAddon.clickMenu(...labels: string[])
 
-Find memu by labels and click.
+Find menu by labels and click.
 If the target is nested, it can be specified with variable length arguments.
 
 ex) File -> CloseTab: `menuAddon.clickMenu('File', 'CloseTab');`
