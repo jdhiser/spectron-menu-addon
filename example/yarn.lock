@@ -3761,9 +3761,9 @@ spdx-license-ids@^1.0.2:
   version "1.2.2"
   resolved "https://registry.yarnpkg.com/spdx-license-ids/-/spdx-license-ids-1.2.2.tgz#c9df7a3424594ade6bd11900d596696dc06bac57"
 
-spectron-menu-addon@0.2.0:
-  version "0.2.0"
-  resolved "https://registry.yarnpkg.com/spectron-menu-addon/-/spectron-menu-addon-0.2.0.tgz#5abdac014ac7c44b992bd3cbe32e5765c6dcb9e3"
+spectron-menu-addon@0.3.0:
+  version "0.3.0"
+  resolved "https://registry.yarnpkg.com/spectron-menu-addon/-/spectron-menu-addon-0.3.0.tgz#2ac62dcde6f8c2c1c8760905050b379ed080f779"
 
 spectron@^3.7.2:
   version "3.7.2"
