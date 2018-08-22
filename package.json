@@ -25,8 +25,8 @@
   "author": "",
   "license": "MIT",
   "peerDependencies": {
-    "electron": "^1.7.11",
-    "spectron": "^3.7.2"
+    "electron": ">=1.7.11",
+    "spectron": ">=3.7.2"
   },
   "devDependencies": {
     "@types/chai": "^4.1.2",
