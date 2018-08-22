@@ -22,7 +22,12 @@
     "menu",
     "mock"
   ],
-  "author": "",
+  "contributors": [
+    {
+      "name": "davidka",
+      "url": "https://github.com/davidka"
+    }
+  ],
   "license": "MIT",
   "peerDependencies": {
     "electron": ">=1.7.11",
