@@ -1,4 +1,3 @@
-import * as circular from 'circular-json'
 import { MenuItem, MenuItemConstructorOptions, Menu, ipcMain, Event } from 'electron'
 
 // tslint:disable-next-line:array-type
