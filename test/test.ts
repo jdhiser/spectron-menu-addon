@@ -58,4 +58,13 @@ describe('Verify menu item status', () => {
     const menuItem = await menuAddon.getMenuItem('File', 'Open')
     expect(menuItem.enabled).to.equal(false)
   })
+
+  it('should return empty string if menu item does not exist', async () => {
+    expect(await app.client.getWindowCount()).to.equal(1)
+    const menuItem = await menuAddon.getMenuItem('File', 'Close')
+    expect(menuItem.label).to.equal('')
+    expect(menuItem.checked).to.equal(undefined)
+    expect(menuItem.enabled).to.equal(undefined)
+    expect(menuItem.visible).to.equal(undefined)
+  })
 })

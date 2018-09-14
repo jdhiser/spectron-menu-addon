@@ -14,12 +14,18 @@ function findItem(menuItems: Array<MenuItem>, labels: string[]) {
 
 ipcMain.on('SPECTRON_MENU_ADDON/GET_MENU_ITEM', (e: Event, labels) => {
   const menuItem: MenuItem = findItem(Menu.getApplicationMenu().items, labels)
-  e.returnValue = new MenuItem({
-    checked: menuItem.checked,
-    enabled: menuItem.enabled,
-    label: menuItem.label,
-    visible: menuItem.visible
-  })
+  if (menuItem) {
+    e.returnValue = new MenuItem({
+      checked: menuItem.checked,
+      enabled: menuItem.enabled,
+      label: menuItem.label,
+      visible: menuItem.visible
+    })
+  } else {
+    e.returnValue = ({
+      label: ''
+    })
+  }
 })
 
 ipcMain.on('SPECTRON_MENU_ADDON/CLICK_MENU_ITEM', (e: Event, labels) => {
