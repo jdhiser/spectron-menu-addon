@@ -56,6 +56,8 @@ Find menu item by labels and return that with following properties:
 }
 ```
 
+> If the target is not found, label is returned as an empty string, all other properties are undefined.
+
 If the target is nested, it can be specified with variable length arguments.
 
 ex) File -> Open:
