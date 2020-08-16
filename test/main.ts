@@ -2,13 +2,12 @@ const { app, Menu, BrowserWindow } = require('electron')
 const path = require('path')
 const url = require('url')
 const fs = require('fs')
-const mkdirp = require('mkdirp')
 
 let win
 
 function saveFile() {
   const folderPath = path.join(__dirname, 'sandbox')
-  mkdirp(folderPath)
+  fs.mkdirSync(folderPath,{recursive:true})
   fs.writeFileSync(path.join(folderPath, 'test.txt'), 'test')
 }
 
@@ -37,7 +36,14 @@ function setAppMenu() {
 }
 
 function createWindow() {
-  win = new BrowserWindow({ width: 800, height: 600 })
+  win = new BrowserWindow({
+    width: 800,
+    height: 600,
+    webPreferences: {
+      nodeIntegration: true
+  }
+  })
+  win.loadURL('about:blank')
 
   win.loadURL(
     url.format({

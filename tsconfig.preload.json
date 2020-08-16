@@ -3,6 +3,7 @@
   "include": ["./src/preload.ts"],
   "exclude": ["node_modules"],
   "compilerOptions": {
+	  "strictNullChecks": false,
     "declaration": false,
     "sourceMap": false,
     "outDir": "./src"

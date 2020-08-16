@@ -4,6 +4,7 @@
     "lib": [
       "es6"
     ],
+    "moduleResolution": "node",
     "target": "es5",
     "sourceMap": true,
     "declaration": true,
@@ -15,9 +16,10 @@
     "outDir": "dist"
   },
   "include": [
-    "./src/**/*.ts"
+    "./src/**/index.ts"
   ],
   "exclude": [
+    ".src/preload.ts",
     "node_modules"
   ]
 }
