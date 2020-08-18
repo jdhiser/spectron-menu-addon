@@ -6,6 +6,6 @@
 	  "strictNullChecks": false,
     "declaration": false,
     "sourceMap": false,
-    "outDir": "./src"
+    "outDir": "./dist"
   }
 }

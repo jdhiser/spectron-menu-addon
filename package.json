@@ -1,6 +1,6 @@
 {
   "name": "spectron-menu-addon-v2",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "",
   "main": "dist/index.js",
   "files": [
@@ -9,7 +9,7 @@
   "types": "dist/index.d.ts",
   "scripts": {
     "build": "tsc",
-    "build:preload": "tsc -p tsconfig.preload.json",
+    "build:preload": "tsc -p tsconfig.preload.json; cp dist/preload.js src",
     "test": "yarn build && yarn build:preload && mocha --reporter spec --require ts-node/register test/*test.ts && rm src/preload.js ",
     "lint": "tslint --config tslint.json -p tsconfig.json --format stylish"
   },
