@@ -13,7 +13,7 @@ npm install --save-dev spectron-menu-addon
 ```TypeScript
 import * as electron from 'electron'
 import * as path from 'path'
-import menuAddon from 'spectron-menu-addon'
+import menuAddon from 'spectron-menu-addon-v2'
 
 const app = menuAddon.createApplication({ args: [path.join(__dirname, '..')], path: electron.toString() })
 
@@ -24,7 +24,8 @@ await menuAddon.isItemEnabled('File', 'Reset')) // Verify if MenuItem File->Rese
 
 ## Example
 
-https://github.com/SALT-AND-PEPPER/spectron-menu-addon/tree/master/example
+https://github.com/jdhiser/spectron-menu-addon/tree/master/example
+
 
 ## API
 
