@@ -1,41 +1,43 @@
 import { Application } from 'spectron'
-import menuAddon from 'spectron-menu-addon'
+import menuAddon from 'spectron-menu-addon-v2'
 
 import createApplication from './create-application'
 import { MenuItem } from 'electron'
 
 export default class ExamplePage {
-  app: Application
+	app: Application
 
-  countElementId = '#count'
+	countElementId = '#count'
 
-  constructor() {
-    this.app = createApplication()
-  }
+	constructor() {
+		this.app = createApplication()
+	}
 
-  start = async () => {
-    await this.app.start()
-    await this.app.client.waitUntilWindowLoaded()
-    await this.app.client.waitForExist(this.countElementId)
-  }
+	start = async () => {
+		await this.app.start();
+		await this.app.client.waitUntilWindowLoaded()
+		const item = await this.app.client.$(this.countElementId);
+		await item.waitForExist();
+	}
 
-  close = async () => {
-    await this.app.stop()
-  }
+	close = async () => {
+		await this.app.stop()
+	}
 
-  getWindowCount = async () => {
-    return await this.app.client.getWindowCount()
-  }
+	getWindowCount = async () => {
+		return await this.app.client.getWindowCount()
+	}
 
-  clickMenu = (...menuItems: string[]) => {
-    menuAddon.clickMenu(...menuItems)
-  }
+	clickMenu = async (...menuItems: string[]) => {
+		await menuAddon.clickMenu(...menuItems)
+	}
 
-  getMenuItem = async (...menuItems: string[]): Promise<MenuItem> => {
-    return await menuAddon.getMenuItem(...menuItems)
-  }
+	getMenuItem = async (...menuItems: string[]): Promise<MenuItem> => {
+		return await menuAddon.getMenuItem(...menuItems)
+	}
 
-  getText = async () => {
-    return await this.app.client.getText(this.countElementId)
-  }
+	getText = async () => {
+		const item = await this.app.client.$(this.countElementId)
+		return await item.getText();
+	}
 }

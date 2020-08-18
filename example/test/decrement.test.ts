@@ -1,4 +1,4 @@
-import menuAddon from 'spectron-menu-addon'
+import menuAddon from 'spectron-menu-addon-v2'
 import ExamplePage from './pageobject/example.page'
 import { expect } from 'chai'
 
@@ -15,7 +15,7 @@ describe('Decrement', () => {
   })
 
   it('should decrement count', async () => {
-    page.clickMenu('Count', 'Decrement')
+    await page.clickMenu('Count', 'Decrement')
     expect(await page.getText()).to.equal('-1')
   })
 })

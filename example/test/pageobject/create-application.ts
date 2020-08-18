@@ -1,6 +1,6 @@
 import * as electron from 'electron'
 import * as path from 'path'
-import menuAddon from 'spectron-menu-addon'
+import menuAddon from 'spectron-menu-addon-v2'
 
 export default function createApplication() {
   const app = menuAddon.createApplication({

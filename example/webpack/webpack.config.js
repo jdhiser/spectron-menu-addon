@@ -23,8 +23,10 @@ DtsBundlePlugin.prototype.apply = function(compiler) {
   )
 }
 
-module.exports = {
-  target: 'electron',
+module.exports =  [
+{
+  target: 'electron-main',
+  mode: 'development',
   devtool: 'source-map',
 
   node: {
@@ -33,6 +35,57 @@ module.exports = {
 
   entry: {
     main: './main.ts',
+  },
+
+  output: {
+    filename: '[name].js',
+    publicPath: '',
+    path: path.resolve(__dirname, '../dist'),
+    libraryTarget: 'umd',
+    library: libraryName,
+    umdNamedDefine: true
+  },
+
+  context: path.resolve(__dirname, '../src'),
+
+  resolve: {
+    extensions: ['.ts', '.tsx', '.js']
+  },
+
+  module: {
+    rules: [
+      {
+        test: /\.(ts|tsx)$/,
+        use: ['ts-loader']
+      },
+      {
+        test: /\.ts$/,
+        enforce: 'pre',
+        loader: 'ts-loader',
+      }
+    ]
+  },
+
+  plugins: [
+    new webpack.DefinePlugin({
+      'process.env': {
+        NODE_ENV: JSON.stringify('production')
+      }
+    }),
+    new webpack.optimize.ModuleConcatenationPlugin(),
+    new webpack.optimize.OccurrenceOrderPlugin()
+  ]
+},
+{
+  target: 'electron-renderer',
+  mode: 'development',
+  devtool: 'source-map',
+
+  node: {
+    __dirname: false
+  },
+
+  entry: {
     renderer: './renderer.tsx'
   },
 
@@ -60,13 +113,7 @@ module.exports = {
       {
         test: /\.ts$/,
         enforce: 'pre',
-        loader: 'tslint-loader',
-        options: {
-          failOnHint: true,
-          typeCheck: true,
-          /* Loader options go here */
-          configFile: './tslint.json'
-        }
+        loader: 'ts-loader',
       }
     ]
   },
@@ -81,3 +128,4 @@ module.exports = {
     new webpack.optimize.OccurrenceOrderPlugin()
   ]
 }
+]

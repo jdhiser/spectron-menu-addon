@@ -17,7 +17,7 @@ export default class Counter extends React.Component<any, CounterState> {
   }
 
   componentWillUnmount() {
-    ipcRenderer.removeAllListeners()
+    ipcRenderer.removeAllListeners('SEND_COUNT')
   }
 
   render() {
