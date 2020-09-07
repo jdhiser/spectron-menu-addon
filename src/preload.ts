@@ -29,11 +29,30 @@ ipcMain.on('SPECTRON_MENU_ADDON/GET_MENU_ITEM', (e, labels) => {
 		// Thus, sending back a menuItem itself is impossible.  Send back a generic object.
 		// instead.
 		//
+		let subItems = []
+        if(menuItem.type == 'submenu') {
+            menuItem.submenu.items.forEach(element => {
+                let menuItemData = {
+					path: labels.concat(element.label),
+                    label: element.label,
+                    checked: element.checked,
+                    enabled: element.enabled,
+                    visible: element.visible,
+                    type: element.type
+                }
+                subItems.push(menuItemData)
+            })
+		}
+		
 		e.returnValue =  { 
-			label: menuItem.label,
-			checked: menuItem.checked,
-			enabled: menuItem.enabled,
-			visible: menuItem.visible
+			path: labels,
+            label: menuItem.label,
+            checked: menuItem.checked,
+            enabled: menuItem.enabled,
+            visible: menuItem.visible,
+            type: menuItem.type,
+            submenu:  subItems.length,
+            subItems: subItems
 		}
 	} else {
 		e.returnValue = ({
